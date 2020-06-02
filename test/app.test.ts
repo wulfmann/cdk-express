@@ -4,7 +4,9 @@ import { expect, exactlyMatchTemplate } from '@aws-cdk/assert';
 describe('App', () => {
     it('no handler', async () => {
         const app = new App('My-App');
-        app.get('/test/:test');
+
+        app.get('/test/:test', './test/functions/getTest');
+
         expect(app.stack).to(
             exactlyMatchTemplate({
                 Resources: {
@@ -266,8 +268,45 @@ describe('App', () => {
                         Type: 'AWS::Lambda::Function',
                         Properties: {
                             Code: {
-                                ZipFile:
-                                    'exports.handler=(e,c)=>(console.log("hello world")',
+                                S3Bucket: {
+                                    Ref:
+                                        'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3Bucket11644273',
+                                },
+                                S3Key: {
+                                    'Fn::Join': [
+                                        '',
+                                        [
+                                            {
+                                                'Fn::Select': [
+                                                    0,
+                                                    {
+                                                        'Fn::Split': [
+                                                            '||',
+                                                            {
+                                                                Ref:
+                                                                    'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D',
+                                                            },
+                                                        ],
+                                                    },
+                                                ],
+                                            },
+                                            {
+                                                'Fn::Select': [
+                                                    1,
+                                                    {
+                                                        'Fn::Split': [
+                                                            '||',
+                                                            {
+                                                                Ref:
+                                                                    'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D',
+                                                            },
+                                                        ],
+                                                    },
+                                                ],
+                                            },
+                                        ],
+                                    ],
+                                },
                             },
                             Handler: 'index.handler',
                             Role: {
@@ -310,6 +349,23 @@ describe('App', () => {
                                 ],
                             ],
                         },
+                    },
+                },
+                Parameters: {
+                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3Bucket11644273: {
+                        Type: 'String',
+                        Description:
+                            'S3 bucket for asset "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
+                    },
+                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D: {
+                        Type: 'String',
+                        Description:
+                            'S3 key for asset version "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
+                    },
+                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10ArtifactHash68CB5211: {
+                        Type: 'String',
+                        Description:
+                            'Artifact hash for asset "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
                     },
                 },
             })

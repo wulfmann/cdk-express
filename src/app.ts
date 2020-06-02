@@ -4,6 +4,12 @@ import * as lambda from '@aws-cdk/aws-lambda';
 
 import { parsePath } from './utils';
 
+export interface AddMethodProps {
+    integration?: ag.LambdaIntegrationOptions;
+    method?: ag.MethodOptions;
+    lambda?: lambda.FunctionProps;
+}
+
 export interface IResourceMapItem {
     construct: ag.Resource;
     children: IResourceMap;
@@ -32,35 +38,30 @@ export class App {
         this.api = new ag.RestApi(this.stack, `${id}Api`, props?.api);
     }
 
-    public get(
-        path: string,
-        integrationOptions?: ag.LambdaIntegrationOptions,
-        options?: ag.MethodOptions,
-        fnProps?: lambda.FunctionProps
-    ): void {
+    public get(path: string, assetPath: string, props?: AddMethodProps) {
         const logicalId = this.deriveIdFromPath(path);
         const resource = this.constructResourceMap(path);
 
         const baseLambdaProps = {
             handler: 'index.handler',
-            code: lambda.Code.fromInline(
-                'exports.handler=(e,c)=>(console.log("hello world")'
-            ),
+            code: lambda.Code.fromAsset(assetPath),
             runtime: lambda.Runtime.NODEJS_12_X,
         };
 
         const lambdaProps: lambda.FunctionProps = Object.assign(
             {},
             baseLambdaProps,
-            fnProps
+            props?.lambda
         );
+
         const fn = new lambda.Function(
             this.stack,
             `${logicalId}Handler`,
             lambdaProps
         );
-        const integration = new ag.LambdaIntegration(fn, integrationOptions);
-        resource.addMethod('GET', integration, options);
+
+        const integration = new ag.LambdaIntegration(fn, props?.integration);
+        return resource.addMethod('GET', integration, props?.method);
     }
 
     public listen(port: number, callback: () => void): void {
