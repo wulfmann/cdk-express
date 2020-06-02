@@ -1,9 +1,5 @@
 # CDK Express
 
-******
-BETA
-******
-
 This project attempts to provide an express-like interface for defining api gateway integrations.
 
 It uses CDK under the hood to generate a cloudformation stack..
@@ -18,7 +14,7 @@ yarn add cdk-express
 // app.ts
 import * as cdx from 'cdk-express';
 
-const app = cdx();
+const app = cdx('myApp');
 
 app.get('/item', './getItem');
 ```
