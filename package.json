@@ -1,6 +1,6 @@
 {
   "name": "cdk-express",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Express-like framework for building api-gateway and lambda applications with CDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -55,5 +55,8 @@
       "/dist/",
       "/lib/"
     ]
-  }
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
