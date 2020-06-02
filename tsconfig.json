@@ -25,6 +25,9 @@
         ],
         "outDir": "lib"
     },
+    "include": [
+        "src/**/*.ts"
+    ],
     "exclude": [
         "cdk.out",
         "node_modules",
