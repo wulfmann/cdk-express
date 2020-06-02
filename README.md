@@ -16,7 +16,7 @@ yarn add cdk-express
 
 ```typescript
 // app.ts
-import * as cdx from 'cdx';
+import * as cdx from 'cdk-express';
 
 const app = cdx();
 
