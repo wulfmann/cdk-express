@@ -24,8 +24,8 @@
     "watch": "tsc -w",
     "cdk": "cdk",
     "test": "jest",
-    "lint": "tslint '{src/**/*,test/**/*}.ts' --fix",
-    "format": "prettier '{src/**/*,test/**/*}.ts' --write"
+    "lint": "tslint '{src/**/*,test/**/*}.ts'",
+    "format": "prettier '{src/**/*,test/**/*}.ts'"
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "1.42.1",

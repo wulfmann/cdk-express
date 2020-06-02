@@ -270,7 +270,7 @@ describe('App', () => {
                             Code: {
                                 S3Bucket: {
                                     Ref:
-                                        'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3Bucket11644273',
+                                        'AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eS3Bucket4602673C',
                                 },
                                 S3Key: {
                                     'Fn::Join': [
@@ -284,7 +284,7 @@ describe('App', () => {
                                                             '||',
                                                             {
                                                                 Ref:
-                                                                    'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D',
+                                                                    'AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eS3VersionKey3A9E4BFA',
                                                             },
                                                         ],
                                                     },
@@ -298,7 +298,7 @@ describe('App', () => {
                                                             '||',
                                                             {
                                                                 Ref:
-                                                                    'AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D',
+                                                                    'AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eS3VersionKey3A9E4BFA',
                                                             },
                                                         ],
                                                     },
@@ -352,20 +352,20 @@ describe('App', () => {
                     },
                 },
                 Parameters: {
-                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3Bucket11644273: {
+                    AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eS3Bucket4602673C: {
                         Type: 'String',
                         Description:
-                            'S3 bucket for asset "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
+                            'S3 bucket for asset "0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2e"',
                     },
-                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10S3VersionKey0F47366D: {
+                    AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eS3VersionKey3A9E4BFA: {
                         Type: 'String',
                         Description:
-                            'S3 key for asset version "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
+                            'S3 key for asset version "0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2e"',
                     },
-                    AssetParameters9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10ArtifactHash68CB5211: {
+                    AssetParameters0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2eArtifactHash869C8818: {
                         Type: 'String',
                         Description:
-                            'Artifact hash for asset "9061025f94203af071f3d877d810f8bab07dfd4a77159f46d96c87a40fa5bc10"',
+                            'Artifact hash for asset "0f9f38dc7f6d5340cfe351e34092339c961efcf07b57dbfe3fc0c93513283d2e"',
                     },
                 },
             })
