@@ -10,6 +10,10 @@ It uses CDK under the hood to generate a cloudformation stack..
 
 ## Quickstart
 
+```bash
+yarn add cdk-express
+```
+
 ```typescript
 // app.ts
 import * as cdx from 'cdx';
