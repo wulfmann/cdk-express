@@ -19,7 +19,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i yarn
+    - run: npm i -g yarn
     - run: yarn
     - run: yarn test
     - run: yarn lint
@@ -28,4 +28,4 @@ jobs:
         yarn build
         yarn publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_API_KEY }}
+        NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
