@@ -3,3 +3,4 @@ lib/
 .DS_Store
 */**/*.js
 node_modules
+!test/functions/**/index.js
